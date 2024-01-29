@@ -1,15 +1,17 @@
 from selenium import webdriver
-from webdriver_manager.chrome import ChromeDriverManager
-from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.firefox.service import Service
+from selenium.webdriver.firefox.options import Options
 
-# Chrome options for headless mode
-chrome_options = Options()
-chrome_options.add_argument("--headless")  # Runs Chrome in headless mode.
-chrome_options.add_argument("--no-sandbox")  # Bypass OS security model
-chrome_options.add_argument("--disable-dev-shm-usage")  # Overcome limited resource problems
+# Firefox options (similar to Chrome options)
+firefox_options = Options()
+firefox_options.add_argument("--headless")  # Runs Firefox in headless mode.
 
-# Initialize the Chrome WebDriver with options
-driver = webdriver.Chrome(ChromeDriverManager().install(), options=chrome_options)
+# Set the path to the GeckoDriver executable
+geckodriver_path = '/usr/local/bin/geckodriver'
+
+# Initialize the Firefox WebDriver with options
+s = Service(geckodriver_path)
+driver = webdriver.Firefox(service=s, options=firefox_options)
 
 # Navigate to a website (change the URL to your desired website)
 url = 'https://www.example.com'
