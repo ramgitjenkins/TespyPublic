@@ -33,7 +33,7 @@ def test_interaction_with_neo_norwexapac_org(browser):
 
     # Clicking a button
     # Assumed there's a button to click with id 'submit-button'
-    submit_button = browser.find_element(By.ID, 'submit-button')
+    submit_button = browser.find_element(By.ID, 'ext-gen17')
     submit_button.click()
 
     # Add assertions to verify the results of the actions
